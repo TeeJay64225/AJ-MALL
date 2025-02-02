@@ -40,7 +40,7 @@
                         <i class="fas fa-shopping-cart"></i> Cart
                         <span class="cart-count">0</span>
                     </a>
-                    <a href="pages/auth/login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+                    <a href="pages/auth/login.html" class="login-btn"><i class="fas fa-user"></i> Account</a>
                 </div>
             </div>
         </nav>
@@ -93,7 +93,7 @@
                             <label class="shipping-option">
                                 <input type="radio" name="shipping" value="standard" checked>
                                 <div class="option-details">
-                                    <span class="option-name">Standard Shipping</span>
+                                    <span class="option-name">Standard Delivery</span>
                                     <span class="option-price">GHS5.99</span>
                                     <span class="option-time">5-7 Business Days</span>
                                 </div>
@@ -101,7 +101,7 @@
                             <label class="shipping-option">
                                 <input type="radio" name="shipping" value="express">
                                 <div class="option-details">
-                                    <span class="option-name">Express Shipping</span>
+                                    <span class="option-name">Express Delivery</span>
                                     <span class="option-price">GHS14.99</span>
                                     <span class="option-time">2-3 Business Days</span>
                                 </div>
@@ -123,7 +123,7 @@
                         <span id="checkoutSubtotal">GHS 0.00</span>
                     </div>
                     <div class="summary-row">
-                        <span>Shipping</span>
+                        <span>Delivery</span>
                         <span id="checkoutShipping">GHS 5.99</span>
                     </div>
                     <div class="summary-row">
@@ -144,42 +144,73 @@
         </div>
     </main>
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
-                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
-                <a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a>
-                <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
-                <a href="#"><i class="fas fa-angle-right"></i> FAQs</a>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email">
-                    <button type="submit">Subscribe</button>
-                </form>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"> MailTo: </i> operations@aj-mall.com</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0503593844</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0559359884</p>
+            <p><i class="fas fa-post"> Post: </i> P.O.Box: 1188, CapeCoast.C/R--WS-291-5632</p>
+            <p><i class="fas fa-map-marker-alt"> Location: </i> Adjacent Latter Day Saints Church, Off the Takoradi
+                Airport Road</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+            <a href="#"><i class="fas fa-angle-right"></i> FAQs</a>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 AJ Mall. All rights reserved.</p>
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 AJ Mall. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<!-- Add this right before the closing body tag, after the footer -->
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+    <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="../pages/products/list.html">
+        <i class="fas fa-store"></i>
+        <span>Shop</span>
+    </a>
+    <a href="../pages/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <span class="mobile-cart-count">0</span>
+    </a>
+    <a href="../pages/auth/login.html">
+        <i class="fas fa-user"></i>
+        <span>Account</span>
+    </a>
+    <a href="#" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </a>
+</nav>
     <script src="../js/checkout.js"></script>
 </body>
 

@@ -303,11 +303,28 @@ body {
     color: var(--primary-orange);
     font-size: 1.2rem;
 }
+#cat, a{
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+.cart-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
 
 /* Special Offers */
 .special-offers {
     padding: 4rem 5%;
     background-color: var(--light-gray);
+    height: auto;
 }
 
 .offers-grid {
@@ -320,7 +337,7 @@ body {
 .offer-card {
 background: linear-gradient(rgba(249, 249, 249, 0.202), rgba(0, 0, 0, 0.5)), url('../assets/images/ajmall.jpg');
     color: var(--white);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 8px;
     text-align: center;
 }

@@ -1,64 +1,51 @@
-
 class ShoppingCart {
     constructor() {
-        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        this.cart = JSON.parse(localStorage.getItem("cart")) || [];
         this.cartTotal = 0;
-        this.shippingCost = 0;
-        this.tax = 0;
-        this.addDemoItems(); // Ensure demo items are added if cart is empty
+        this.shippingCost = 10.00; // Example flat-rate shipping
+        this.taxRate = 0.15; // Example 15% tax
         this.init();
     }
 
-    addDemoItems() {
-        if (this.cart.length === 0) {
-            this.cart = [
-                {
-                    id: 1,
-                    name: "Wireless Headphones",
-                    price: 50.00,
-                    quantity: 7,
-                    image: "../assets/images/can.jpg"
-                },
-                {
-                    id: 2,
-                    name: "Smart Watch",
-                    price: 120.00,
-                    quantity: 1,
-                    image: "../assets/images/logo.png"
-                }
-            ];
-            this.saveCart();
-        }
+    // Load cart from localStorage
+   loadCartFromStorage() {
+    const storedCart = localStorage.getItem("cart");
+    try {
+        this.cart = storedCart ? JSON.parse(storedCart).filter(item => item && item.id && item.name) : [];
+    } catch (error) {
+        console.error("Error loading cart from storage:", error);
+        this.cart = [];
     }
+}
 
+
+    // Initialize the cart functionalities
     init() {
+        this.loadCartFromStorage();
         this.updateCartDisplay();
         this.setupEventListeners();
         this.updateCartCount();
     }
 
+    // Update cart items display
     updateCartDisplay() {
-        const cartContainer = document.getElementById('cartItemsList');
-        const cartCountElement = document.getElementById('cartCount');
-
+        const cartContainer = document.getElementById("cartItemsList");
+        const emptyCartMessage = document.getElementById("emptyCartMessage");
         if (!cartContainer) return;
 
         if (this.cart.length === 0) {
-            cartContainer.innerHTML = `
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="pages/products/list.html" class="continue-shopping">Continue Shopping</a>
-                </div>
-            `;
+            cartContainer.innerHTML = "";
+            emptyCartMessage.classList.remove("hidden");
             return;
+        } else {
+            emptyCartMessage.classList.add("hidden");
         }
 
-        cartContainer.innerHTML = this.cart.map(item => this.generateCartItemHTML(item)).join('');
+        cartContainer.innerHTML = this.cart.map(item => this.generateCartItemHTML(item)).join("");
         this.updateCartSummary();
-        cartCountElement.textContent = this.cart.length; // Update cart count in UI
     }
 
+    // Generate cart item HTML
     generateCartItemHTML(item) {
         return `
             <div class="cart-item" data-product-id="${item.id}">
@@ -69,11 +56,11 @@ class ShoppingCart {
                     <h3>${item.name}</h3>
                     <p class="item-price">GHS ${item.price.toFixed(2)}</p>
                     <div class="quantity-controls">
-                        <button class="quantity-btn" data-action="decrease">-</button>
+                        <button class="quantity-btn" data-action="decrease" data-id="${item.id}">-</button>
                         <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" data-action="increase">+</button>
+                        <button class="quantity-btn" data-action="increase" data-id="${item.id}">+</button>
                     </div>
-                    <button class="remove-item">
+                    <button class="remove-item" data-id="${item.id}">
                         <i class="fas fa-trash"></i> Remove
                     </button>
                 </div>
@@ -84,18 +71,92 @@ class ShoppingCart {
         `;
     }
 
+    // Update cart count
     updateCartCount() {
-        const cartCountElement = document.getElementById('cartCount');
+        const cartCountElement = document.getElementById("cartCount");
         const count = this.cart.reduce((total, item) => total + item.quantity, 0);
         if (cartCountElement) cartCountElement.textContent = count;
     }
 
+    // Save cart to localStorage
     saveCart() {
-        localStorage.setItem('cart', JSON.stringify(this.cart));
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        this.updateCartCount();
+        this.updateCartDisplay();
+    }
+
+    // Add item to cart (called from product.js)
+    addToCart(product) {
+        let existingProduct = this.cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            this.cart.push({ ...product, quantity: 1 });
+        }
+        this.saveCart();
+    }
+
+    // Remove item from cart
+    removeFromCart(productId) {
+        this.cart = this.cart.filter(item => item.id !== productId);
+        this.saveCart();
+    }
+
+    // Update quantity of item
+    updateQuantity(productId, action) {
+        let item = this.cart.find(product => product.id === productId);
+        if (item) {
+            if (action === "increase") {
+                item.quantity += 1;
+            } else if (action === "decrease" && item.quantity > 1) {
+                item.quantity -= 1;
+            } else {
+                this.removeFromCart(productId);
+                return;
+            }
+            this.saveCart();
+        }
+    }
+
+    // Update cart summary
+updateCartSummary() {
+    const subtotal = this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * this.taxRate;
+    const total = subtotal + this.shippingCost + tax;
+
+    // Update UI
+    document.getElementById("subtotal").textContent = `GHS ${subtotal.toFixed(2)}`;
+    document.getElementById("shipping").textContent = `GHS ${this.shippingCost.toFixed(2)}`;
+    document.getElementById("tax").textContent = `GHS ${tax.toFixed(2)}`;
+    document.getElementById("total").textContent = `GHS ${total.toFixed(2)}`;
+
+    // Store order summary in localStorage
+    localStorage.setItem("orderSummary", JSON.stringify({
+        subtotal: subtotal.toFixed(2),
+        shipping: this.shippingCost.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    }));
+}
+
+
+    // Set up event listeners
+    setupEventListeners() {
+        document.addEventListener("click", (event) => {
+            const target = event.target;
+            if (target.classList.contains("remove-item")) {
+                const productId = parseInt(target.dataset.id);
+                this.removeFromCart(productId);
+            } else if (target.classList.contains("quantity-btn")) {
+                const productId = parseInt(target.dataset.id);
+                const action = target.dataset.action;
+                this.updateQuantity(productId, action);
+            }
+        });
     }
 }
 
 // Initialize cart on page load
-document.addEventListener('DOMContentLoaded', () => {
-    new ShoppingCart();
+document.addEventListener("DOMContentLoaded", () => {
+    window.shoppingCart = new ShoppingCart();
 });

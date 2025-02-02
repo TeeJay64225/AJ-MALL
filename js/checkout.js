@@ -1,5 +1,3 @@
-// checkout.js
-
 class Checkout {
     constructor() {
         this.cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -18,7 +16,6 @@ class Checkout {
     }
 
     setupEventListeners() {
-        // Form submission
         const checkoutForm = document.getElementById('checkoutForm');
         if (checkoutForm) {
             checkoutForm.addEventListener('submit', (e) => {
@@ -27,7 +24,6 @@ class Checkout {
             });
         }
 
-        // Same as billing address checkbox
         const sameAsBilling = document.getElementById('sameAsBilling');
         if (sameAsBilling) {
             sameAsBilling.addEventListener('change', () => {
@@ -35,11 +31,18 @@ class Checkout {
             });
         }
 
-        // Payment method selection
         document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
             input.addEventListener('change', (e) => {
                 this.togglePaymentFields(e.target.value);
             });
+        });
+
+        // Listen for changes in localStorage (sync with cart)
+        window.addEventListener("storage", (event) => {
+            if (event.key === "cart") {
+                this.loadOrderSummary();
+                this.updateOrderSummary();
+            }
         });
     }
 
@@ -57,6 +60,7 @@ class Checkout {
     }
 
     loadOrderSummary() {
+        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
         this.orderSummary = {
             subtotal: this.calculateSubtotal(),
             shipping: this.calculateShipping(),
@@ -77,31 +81,14 @@ class Checkout {
     }
 
     calculateTax() {
-        return this.calculateSubtotal() * 0.1; // 10% tax
+        return this.calculateSubtotal() * 0.15;
     }
 
     updateOrderSummary() {
-        const summaryElement = document.getElementById('orderSummary');
-        if (!summaryElement) return;
-
-        summaryElement.innerHTML = `
-            <div class="summary-item">
-                <span>Subtotal</span>
-                <span>$${this.orderSummary.subtotal.toFixed(2)}</span>
-            </div>
-            <div class="summary-item">
-                <span>Shipping</span>
-                <span>$${this.orderSummary.shipping.toFixed(2)}</span>
-            </div>
-            <div class="summary-item">
-                <span>Tax</span>
-                <span>$${this.orderSummary.tax.toFixed(2)}</span>
-            </div>
-            <div class="summary-item total">
-                <span>Total</span>
-                <span>$${this.orderSummary.total.toFixed(2)}</span>
-            </div>
-        `;
+        document.getElementById("checkoutSubtotal").textContent = `GHS ${this.orderSummary.subtotal.toFixed(2)}`;
+        document.getElementById("checkoutShipping").textContent = `GHS ${this.orderSummary.shipping.toFixed(2)}`;
+        document.getElementById("checkoutTax").textContent = `GHS ${this.orderSummary.tax.toFixed(2)}`;
+        document.getElementById("checkoutTotal").textContent = `GHS ${this.orderSummary.total.toFixed(2)}`;
     }
 
     toggleShippingAddress() {
@@ -114,13 +101,8 @@ class Checkout {
     }
 
     togglePaymentFields(paymentMethod) {
-        const creditCardFields = document.getElementById('creditCardFields');
-        const paypalFields = document.getElementById('paypalFields');
-
-        if (creditCardFields && paypalFields) {
-            creditCardFields.style.display = paymentMethod === 'credit-card' ? 'block' : 'none';
-            paypalFields.style.display = paymentMethod === 'paypal' ? 'block' : 'none';
-        }
+        document.getElementById('creditCardFields').style.display = paymentMethod === 'credit-card' ? 'block' : 'none';
+        document.getElementById('paypalFields').style.display = paymentMethod === 'paypal' ? 'block' : 'none';
     }
 
     collectFormData() {
@@ -135,18 +117,14 @@ class Checkout {
         };
 
         const sameAsBilling = document.getElementById('sameAsBilling');
-        if (sameAsBilling && sameAsBilling.checked) {
-            this.shippingAddress = { ...this.billingAddress };
-        } else {
-            this.shippingAddress = {
-                firstName: document.getElementById('shippingFirstName').value,
-                lastName: document.getElementById('shippingLastName').value,
-                address: document.getElementById('shippingAddress').value,
-                city: document.getElementById('shippingCity').value,
-                state: document.getElementById('shippingState').value,
-                zip: document.getElementById('shippingZip').value
-            };
-        }
+        this.shippingAddress = sameAsBilling.checked ? { ...this.billingAddress } : {
+            firstName: document.getElementById('shippingFirstName').value,
+            lastName: document.getElementById('shippingLastName').value,
+            address: document.getElementById('shippingAddress').value,
+            city: document.getElementById('shippingCity').value,
+            state: document.getElementById('shippingState').value,
+            zip: document.getElementById('shippingZip').value
+        };
 
         this.paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
     }
@@ -154,32 +132,17 @@ class Checkout {
     async processCheckout() {
         try {
             this.collectFormData();
-            
-            // Validate all required fields
-            if (!this.validateCheckoutData()) {
-                throw new Error('Please fill in all required fields');
-            }
-
-            // Show loading state
+            if (!this.validateCheckoutData()) throw new Error('Please fill in all required fields');
             this.toggleLoadingState(true);
 
-            // Process payment (mock API call)
             const paymentResult = await this.processPayment();
-            
             if (paymentResult.success) {
-                // Create order
                 const orderResult = await this.createOrder();
-                
                 if (orderResult.success) {
-                    // Clear cart and redirect to success page
                     this.clearCart();
                     window.location.href = 'order-confirmation.html';
-                } else {
-                    throw new Error('Failed to create order');
-                }
-            } else {
-                throw new Error('Payment processing failed');
-            }
+                } else throw new Error('Failed to create order');
+            } else throw new Error('Payment processing failed');
         } catch (error) {
             this.showError(error.message);
         } finally {
@@ -188,26 +151,15 @@ class Checkout {
     }
 
     validateCheckoutData() {
-        // Add validation logic
-        return true; // Placeholder
+        return true; 
     }
 
     async processPayment() {
-        // Mock payment processing
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve({ success: true });
-            }, 1500);
-        });
+        return new Promise(resolve => setTimeout(() => resolve({ success: true }), 1500));
     }
 
     async createOrder() {
-        // Mock order creation
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve({ success: true });
-            }, 1000);
-        });
+        return new Promise(resolve => setTimeout(() => resolve({ success: true }), 1000));
     }
 
     clearCart() {
@@ -219,9 +171,7 @@ class Checkout {
         const submitButton = document.querySelector('button[type="submit"]');
         if (submitButton) {
             submitButton.disabled = isLoading;
-            submitButton.innerHTML = isLoading ? 
-                '<span class="spinner-border spinner-border-sm"></span> Processing...' : 
-                'Place Order';
+            submitButton.innerHTML = isLoading ? '<span class="spinner-border spinner-border-sm"></span> Processing...' : 'Place Order';
         }
     }
 
@@ -230,14 +180,26 @@ class Checkout {
         if (errorDiv) {
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
-            setTimeout(() => {
-                errorDiv.style.display = 'none';
-            }, 5000);
+            setTimeout(() => errorDiv.style.display = 'none', 5000);
         }
     }
 }
 
-// Initialize checkout
 document.addEventListener('DOMContentLoaded', () => {
-    const checkout = new Checkout();
+    window.checkout = new Checkout();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.checkout = new Checkout();
+
+    // Ensure order summary is saved before redirecting
+    document.getElementById('proceedToPayment')?.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+
+        // Save the order summary in localStorage
+        localStorage.setItem('orderSummary', JSON.stringify(window.checkout.orderSummary));
+
+        // Redirect to payment page
+        window.location.href = "../pages/payment.html";
+    });
 });

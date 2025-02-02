@@ -27,7 +27,7 @@
                     <i class="fas fa-shopping-cart"></i> Cart
                     <span class="cart-count">0</span>
                 </a>
-                <a href="auth/login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+                <a href="auth/login.html" class="login-btn"><i class="fas fa-user"></i> Account</a>
             </div>
         </nav>
     </header>
@@ -169,14 +169,17 @@
         </div>
     </main>
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="footer-content">
         <div class="footer-section">
             <h4>Contact Us</h4>
-            <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
-            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-            <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
+            <p><i class="fas fa-envelope"> MailTo: </i> operations@aj-mall.com</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0503593844</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0559359884</p>
+            <p><i class="fas fa-post"> Post: </i> P.O.Box: 1188, CapeCoast.C/R--WS-291-5632</p>
+            <p><i class="fas fa-map-marker-alt"> Location: </i> Adjacent Latter Day Saints Church, Off the Takoradi
+                Airport Road</p>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
@@ -208,27 +211,31 @@
 </footer>
 
 
-
-    <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-nav">
-        <a href="../../index.html">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="../products/list.html">
-            <i class="fas fa-store"></i>
-            <span>Shop</span>
-        </a>
-        <a href="../../index.html">
-            <i class="fas fa-box"></i>
-            <span>Orders</span>
-        </a>
-        <a href="../auth/login.html">
-            <i class="fas fa-user"></i>
-            <span>Account</span>
-        </a>
-    </nav>
-
+<!-- Add this right before the closing body tag, after the footer -->
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+    <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="../pages/products/list.html">
+        <i class="fas fa-store"></i>
+        <span>Shop</span>
+    </a>
+    <a href="../pages/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <span class="mobile-cart-count">0</span>
+    </a>
+    <a href="../pages/auth/login.html">
+        <i class="fas fa-user"></i>
+        <span>Account</span>
+    </a>
+    <a href="#" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </a>
+</nav>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script src="../js/tracking.js"></script>
 </body>

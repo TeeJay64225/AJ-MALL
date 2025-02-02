@@ -1,5 +1,3 @@
-// payment.js
-
 document.addEventListener('DOMContentLoaded', function () {
     // DOM Elements
     const paymentMethods = document.querySelectorAll('.payment-method');
@@ -92,12 +90,41 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobileNumber: mobileInput.value,
             });
         } else {
-            alert('Unsupported payment method.');
+            alert('The payment integration will be added later');
+            return;
         }
 
-        // Reset forms
-        paymentForms.forEach((form) => form.reset());
-        paymentMethods.forEach((m) => m.classList.remove('active'));
-        paymentForms.forEach((form) => form.classList.add('hidden'));
+        // Redirect to payment confirmation page
+        window.location.href = "payConfirmed.html";
     });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // DOM Elements for order summary
+    const subtotalElement = document.getElementById("paymentSubtotal");
+    const shippingElement = document.getElementById("paymentShipping");
+    const taxElement = document.getElementById("paymentTax");
+    const totalElement = document.getElementById("paymentTotal");
+    const payButton = document.querySelector('.pay-button');
+
+    // Function to load order summary from localStorage
+    function loadOrderSummary() {
+        const orderSummary = JSON.parse(localStorage.getItem('orderSummary')) || {
+            subtotal: 0,
+            shipping: 0,
+            tax: 0,
+            total: 0
+        };
+
+        if (subtotalElement) subtotalElement.textContent = `GHS ${orderSummary.subtotal.toFixed(2)}`;
+        if (shippingElement) shippingElement.textContent = `GHS ${orderSummary.shipping.toFixed(2)}`;
+        if (taxElement) taxElement.textContent = `GHS ${orderSummary.tax.toFixed(2)}`;
+        if (totalElement) {
+            totalElement.textContent = `GHS ${orderSummary.total.toFixed(2)}`;
+            payButton.innerHTML = `<i class="fas fa-lock"></i> Pay GHS ${orderSummary.total.toFixed(2)}`;
+        }
+    }
+
+    // Load summary when page loads
+    loadOrderSummary();
 });

@@ -111,8 +111,9 @@
                         <label for="provider">Select Provider</label>
                         <select id="provider">
                             <option value="">Select Provider</option>
-                            <option value="provider1">Provider 1</option>
-                            <option value="provider2">Provider 2</option>
+                            <option value="provider1">MTN</option>
+                            <option value="provider2">Telecel</option>
+                            <option value="provider2">AirtelTigo</option>
                         </select>
                     </div>
                 </form>
@@ -134,31 +135,14 @@
             </section>
 
             <!-- Order Summary Section -->
-            <section class="order-summary">
-                <h2>Order Summary</h2>
-                <div class="summary-items">
-                    <div class="summary-item">
-                        <span>Subtotal</span>
-                        <span>GHS99.99</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Shipping</span>
-                        <span>GHS10.00</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Tax</span>
-                        <span>GHS5.00</span>
-                    </div>
-                    <div class="summary-item total">
-                        <span>Total</span>
-                        <span>GHS114.99</span>
-                    </div>
-                </div>
+<section class="order-summary">
 
-                <button class="pay-button">
-                    <i class="fas fa-lock"></i>
-                    Pay GHS114.99
-                </button>
+    <div class="summary-item">Subtotal: <span id="paymentSubtotal">GHS 0.00</span></div>
+    <div class="summary-item">Shipping: <span id="paymentShipping">GHS 0.00</span></div>
+    <div class="summary-item">Tax: <span id="paymentTax">GHS 0.00</span></div>
+    <div class="summary-item total">Total: <span id="paymentTotal">GHS 0.00</span></div>
+
+<button class="pay-button"><i class="fas fa-lock"></i> Pay GHS 0.00</button>
 
                 <div class="secure-payment">
                     <i class="fas fa-shield-alt"></i>
@@ -169,14 +153,17 @@
         </div>
     </main>
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="footer-content">
         <div class="footer-section">
             <h4>Contact Us</h4>
-            <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
-            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-            <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
+            <p><i class="fas fa-envelope"> MailTo: </i> operations@aj-mall.com</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0503593844</p>
+            <p><i class="fas fa-phone"> Phone: </i> 0559359884</p>
+            <p><i class="fas fa-post"> Post: </i> P.O.Box: 1188, CapeCoast.C/R--WS-291-5632</p>
+            <p><i class="fas fa-map-marker-alt"> Location: </i> Adjacent Latter Day Saints Church, Off the Takoradi
+                Airport Road</p>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
@@ -206,6 +193,33 @@
         <p>&copy; 2025 AJ Mall. All rights reserved.</p>
     </div>
 </footer>
+
+
+<!-- Add this right before the closing body tag, after the footer -->
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+    <a href="../index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="../pages/products/list.html">
+        <i class="fas fa-store"></i>
+        <span>Shop</span>
+    </a>
+    <a href="../pages/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <span class="mobile-cart-count">0</span>
+    </a>
+    <a href="../pages/auth/login.html">
+        <i class="fas fa-user"></i>
+        <span>Account</span>
+    </a>
+    <a href="#" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </a>
+</nav>
 
     <script src="../js/payment.js"></script>
 </body>
