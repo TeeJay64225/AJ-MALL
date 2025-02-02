@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ Mall - Airport Junction Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/images/11.jpg" alt="AJ Mall Logo">
+               <h1>AJ Mall</h1> 
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="pages/products/list.html"><i class="fas fa-store"></i> Shop</a>
+                <a href="pages/cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="pages/auth/login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Airport Junction Mall</h2>
+                <p>Your Premier Shopping Destination</p>
+                <div class="hero-buttons">
+                    <a href="pages/products/list.html" class="cta-button">Shop Now</a>
+                    <a href="pages/products/detail.html" class="secondary-button">Explore Categories</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" id="categories">
+            <h3>Shop By Category</h3>
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h4>Fashion</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Electronics</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Home & Kitchen</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Grocery & Food</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h4>Meat & Seafood</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Health & Wellness</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Toys & Games</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-gem"></i>
+                    <h4>Baby & Kids</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Fruit & Vegetables</h4>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-gem"></i>
+                    <h4>Jewelry</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="section-header">
+                <h3>Featured Products</h3>
+                <a href="pages/products/list.html" class="view-all">View All</a>
+            </div>
+            <div class="product-grid" id="featuredProducts">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section class="special-offers">
+            <h3>Special Offers</h3>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h4>New Arrivals</h4>
+                        <p>Get 20% off on new arrivals</p>
+                        <a href="#" class="offer-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h4>New Arrivals</h4>
+                        <p>Get 20% off on new arrivals</p>
+                        <a href="#" class="offer-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h4>Flash Sale</h4>
+                        <p>Up to 50% off on selected items</p>
+                        <a href="#" class="offer-btn">View Deals</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="features">
+            <h3>Why Choose AJ Mall</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
+                    <h4>Fast Delivery</h4>
+                    <p>Free delivery on orders above GHS 50</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-undo"></i>
+                    <h4>Easy Returns</h4>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h4>24/7 Support</h4>
+                    <p>Round the clock customer service</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Secure Payment</h4>
+                    <p>100% secure payment methods</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+                <a href="#"><i class="fas fa-angle-right"></i> FAQs</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AJ Mall. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
+<!-- Add this right before the closing body tag, after the footer -->
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+    <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="pages/products/list.html">
+        <i class="fas fa-store"></i>
+        <span>Shop</span>
+    </a>
+    <a href="pages/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <span class="mobile-cart-count">0</span>
+    </a>
+    <a href="pages/auth/login.html">
+        <i class="fas fa-user"></i>
+        <span>Account</span>
+    </a>
+    <a href="#" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </a>
+</nav>
+<script src="js/app.js"></script>
+</body>
+
+</html>

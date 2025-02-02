@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Products - AJ Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/products.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+
+<body>
+    <!-- Header Section (Same as index.html) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="AJ Mall Logo">
+                <h1>AJ Mall</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="list.html" class="active"><i class="fas fa-store"></i> Shop</a>
+                <a href="../cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="../auth/login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="products-page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../../index.html">Home</a> >
+            <span>Shop</span>
+        </div>
+
+        <div class="products-container">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filter-header">
+                    <h3>Filters</h3>
+                    <button id="clearFilters">Clear All</button>
+                </div>
+
+                <!-- Categories Filter -->
+                <div class="filter-section">
+                    <h4>Categories</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox" name="category" value="fashion"> Fashion</label>
+                        <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+                        <label><input type="checkbox" name="category" value="home"> Home & Kitchen</label>
+                        <label><input type="checkbox" name="category" value="jewelry"> Jewelry</label>
+                    </div>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="filter-section">
+                    <h4>Price Range</h4>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="1000" step="10">
+                        <div class="price-inputs">
+                            <input type="number" id="minPrice" placeholder="Min">
+                            <span>-</span>
+                            <input type="number" id="maxPrice" placeholder="Max">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Filter -->
+                <div class="filter-section">
+                    <h4>Brands</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox" name="brand" value="brand1"> Brand 1</label>
+                        <label><input type="checkbox" name="brand" value="brand2"> Brand 2</label>
+                        <label><input type="checkbox" name="brand" value="brand3"> Brand 3</label>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-section">
+                    <h4>Rating</h4>
+                    <div class="filter-options">
+                        <label><input type="radio" name="rating" value="4"> 4★ & above</label>
+                        <label><input type="radio" name="rating" value="3"> 3★ & above</label>
+                        <label><input type="radio" name="rating" value="2"> 2★ & above</label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <!-- Products Header -->
+                <div class="products-header">
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    <div class="sort-filter">
+                        <select id="sortSelect">
+                            <option value="recommended">Recommended</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span>...</span>
+                    <button class="page-btn">10</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+            <a href="#"><i class="fas fa-angle-right"></i> FAQs</a>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 AJ Mall. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="../../index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="list.html" class="active">
+            <i class="fas fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="../cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span class="mobile-cart-count">0</span>
+        </a>
+        <a href="../auth/login.html">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+        <button class="filter-btn">
+            <i class="fas fa-filter"></i>
+            <span>Filter</span>
+        </button>
+    </nav>
+
+    <!-- Mobile Filters Modal -->
+    <div class="mobile-filters-modal" id="mobileFiltersModal">
+        <div class="modal-content">
+            <!-- Filters content will be cloned here for mobile -->
+        </div>
+    </div>
+
+    <script src="/js/products/products.js"></script>
+</body>
+
+</html>

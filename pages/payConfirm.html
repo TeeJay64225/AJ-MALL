@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - AJ Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/payment-confirmation.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="AJ Mall Logo">
+                <h1>AJ Mall</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="../products/list.html"><i class="fas fa-store"></i> Shop</a>
+                <a href="../cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                </a>
+                <a href="../auth/login.html" class="login-btn"><i class="fas fa-user"></i> Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="confirmation-container">
+        <div class="confirmation-card">
+            <!-- Payment Status -->
+            <div class="status-section">
+                <div class="status-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Payment Successful!</h2>
+                <p class="status-message">Your order has been confirmed</p>
+                <p class="order-id">Order ID: <span id="orderId">#AJ12345</span></p>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-item">
+                        <span>Order Date</span>
+                        <span id="orderDate">January 29, 2025</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Payment Method</span>
+                        <span id="paymentMethod">Credit Card (**** 1234)</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping Address</span>
+                        <address id="shippingAddress">
+                            123 Street Name<br>
+                            City, State 12345<br>
+                            Country
+                        </address>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="order-items">
+                    <h4>Items Ordered</h4>
+                    <div id="itemsList">
+                        <!-- Items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Price Breakdown -->
+                <div class="price-breakdown">
+                    <div class="breakdown-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">GHS99.99</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Shipping</span>
+                        <span id="shipping">GHS5.00</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Tax</span>
+                        <span id="tax">GHS8.50</span>
+                    </div>
+                    <div class="breakdown-item total">
+                        <span>Total</span>
+                        <span id="total">GHS113.49</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="primary-button" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <button class="secondary-button" onclick="location.href='../../index.html'">
+                    Continue Shopping
+                </button>
+                <button class="secondary-button" onclick="location.href='../pages/OrderTracking.html'">
+                   Track Order/Delivery 
+                </button>
+            </div>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"></i> contact@ajmall.com</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> Airport Junction Mall</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a>
+            <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+            <a href="#"><i class="fas fa-angle-right"></i> FAQs</a>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 AJ Mall. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="../../index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../products/list.html">
+            <i class="fas fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="../../index.html">
+            <i class="fas fa-box"></i>
+            <span>Orders</span>
+        </a>
+        <a href="../auth/login.html">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <script src="../../js/payment-confirmation.js"></script>
+</body>
+</html>

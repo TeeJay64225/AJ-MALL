@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support - AJ Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Same navbar as other pages -->
+    </header>
+
+    <main class="chat-container">
+        <div class="chat-wrapper">
+            <!-- Chat Sidebar -->
+            <aside class="chat-sidebar">
+                <div class="user-profile">
+                    <div class="profile-info">
+                        <img src="../../assets/images/user-avatar.png" alt="User Avatar" class="avatar">
+                        <div class="status-indicator online"></div>
+                    </div>
+                    <h3>Chat Support</h3>
+                </div>
+
+                <!-- Previous Chats -->
+                <div class="previous-chats">
+                    <h4>Recent Conversations</h4>
+                    <div class="chat-list">
+                        <div class="chat-item active">
+                            <img src="../../assets/images/support-avatar.png" alt="Support Agent" class="avatar small">
+                            <div class="chat-info">
+                                <h5>Order #12345</h5>
+                                <p>Thanks for contacting us...</p>
+                                <span class="time">2m ago</span>
+                            </div>
+                        </div>
+                        <!-- More chat items -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <div class="chat-main">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="chat-user-info">
+                        <img src="../../assets/images/support-avatar.png" alt="Support Agent" class="avatar small">
+                        <div class="user-details">
+                            <h4>Support Agent</h4>
+                            <span class="status">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-btn" title="View Order Details">
+                            <i class="fas fa-shopping-bag"></i>
+                        </button>
+                        <button class="action-btn" title="Email Transcript">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <button class="action-btn" title="End Chat">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- System Message -->
+                    <div class="message system">
+                        <p>Connected with Support Agent. How can we help you today?</p>
+                    </div>
+
+                    <!-- Agent Message -->
+                    <div class="message received">
+                        <img src="../../assets/images/support-avatar.png" alt="Support Agent" class="avatar small">
+                        <div class="message-content">
+                            <div class="message-info">
+                                <span class="sender">Support Agent</span>
+                                <span class="time">10:05 AM</span>
+                            </div>
+                            <p>Hello! Welcome to AJ Mall support. How may I assist you today?</p>
+                        </div>
+                    </div>
+
+                    <!-- User Message -->
+                    <div class="message sent">
+                        <div class="message-content">
+                            <div class="message-info">
+                                <span class="time">10:06 AM</span>
+                            </div>
+                            <p>Hi, I need help with my recent order #12345</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input Area -->
+                <div class="chat-input">
+                    <div class="input-wrapper">
+                        <button class="attachment-btn">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button class="emoji-btn">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                    <button class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Order Details Sidebar (Initially Hidden) -->
+            <aside class="order-sidebar" id="orderSidebar">
+                <div class="order-header">
+                    <h3>Order #12345</h3>
+                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="order-details">
+                    <div class="order-info">
+                        <h4>Order Information</h4>
+                        <p><strong>Date:</strong> Jan 25, 2025</p>
+                        <p><strong>Status:</strong> <span class="status pending">Pending</span></p>
+                        <p><strong>Total:</strong> GHS199.99</p>
+                    </div>
+                    <div class="order-items">
+                        <h4>Items</h4>
+                        <!-- Order items list -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <!-- Same as other pages -->
+    </nav>
+
+    <script src="../js/chat.js"></script>
+</body>
+
+</html>
