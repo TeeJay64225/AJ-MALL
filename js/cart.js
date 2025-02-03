@@ -1,3 +1,5 @@
+
+
 class ShoppingCart {
     constructor() {
         this.cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -8,16 +10,9 @@ class ShoppingCart {
     }
 
     // Load cart from localStorage
-   loadCartFromStorage() {
-    const storedCart = localStorage.getItem("cart");
-    try {
-        this.cart = storedCart ? JSON.parse(storedCart).filter(item => item && item.id && item.name) : [];
-    } catch (error) {
-        console.error("Error loading cart from storage:", error);
-        this.cart = [];
+    loadCartFromStorage() {
+        this.cart = JSON.parse(localStorage.getItem("cart")) || [];
     }
-}
-
 
     // Initialize the cart functionalities
     init() {
@@ -119,26 +114,16 @@ class ShoppingCart {
     }
 
     // Update cart summary
-updateCartSummary() {
-    const subtotal = this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const tax = subtotal * this.taxRate;
-    const total = subtotal + this.shippingCost + tax;
+    updateCartSummary() {
+        const subtotal = this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const tax = subtotal * this.taxRate;
+        const total = subtotal + this.shippingCost + tax;
 
-    // Update UI
-    document.getElementById("subtotal").textContent = `GHS ${subtotal.toFixed(2)}`;
-    document.getElementById("shipping").textContent = `GHS ${this.shippingCost.toFixed(2)}`;
-    document.getElementById("tax").textContent = `GHS ${tax.toFixed(2)}`;
-    document.getElementById("total").textContent = `GHS ${total.toFixed(2)}`;
-
-    // Store order summary in localStorage
-    localStorage.setItem("orderSummary", JSON.stringify({
-        subtotal: subtotal.toFixed(2),
-        shipping: this.shippingCost.toFixed(2),
-        tax: tax.toFixed(2),
-        total: total.toFixed(2)
-    }));
-}
-
+        document.getElementById("subtotal").textContent = `GHS ${subtotal.toFixed(2)}`;
+        document.getElementById("shipping").textContent = `GHS ${this.shippingCost.toFixed(2)}`;
+        document.getElementById("tax").textContent = `GHS ${tax.toFixed(2)}`;
+        document.getElementById("total").textContent = `GHS ${total.toFixed(2)}`;
+    }
 
     // Set up event listeners
     setupEventListeners() {

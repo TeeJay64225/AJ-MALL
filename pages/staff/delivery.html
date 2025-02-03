@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ Mall - Staff Delivery Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/staff-delivery.css">
+        <link rel="stylesheet" href="../../css/staff-dashboard.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/inventory.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="AJ Mall Logo">
+                <h2>Staff Portal</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="active">
+                    <i class="fas fa-truck"></i>
+                    <span>Delivery Management</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-box"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Warehouse</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="staff-profile">
+                    <img src="assets/images/staff-avatar.jpg" alt="Staff Avatar">
+                    <div class="staff-info">
+                        <h4>John Doe</h4>
+                        <p>Delivery Staff</p>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Delivery Management</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search order ID...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>15</h3>
+                            <p>Pending Deliveries</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon in-transit">
+                            <i class="fas fa-truck-moving"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>8</h3>
+                            <p>In Transit</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon delivered">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>42</h3>
+                            <p>Delivered Today</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warehouse">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>23</h3>
+                            <p>In Warehouse</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Management Section -->
+                <div class="delivery-section">
+                    <div class="section-header">
+                        <h2>Active Deliveries</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="in-transit">In Transit</option>
+                                <option value="delivered">Delivered</option>
+                            </select>
+                            <button class="refresh-btn">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="delivery-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-2025001</td>
+                                    <td>
+                                        <div class="customer-info">
+                                            <img src="assets/images/customer1.jpg" alt="Customer">
+                                            <span>Sarah Johnson</span>
+                                        </div>
+                                    </td>
+                                    <td>3 items</td>
+                                    <td>123 Airport Road</td>
+                                    <td>
+                                        <span class="status-badge pending">In Warehouse</span>
+                                    </td>
+                                    <td>
+                                        <button class="update-status-btn">Update Status</button>
+                                    </td>
+                                </tr>
+                                <!-- More delivery rows... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Update Status Modal -->
+                <div class="modal" id="updateStatusModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Update Delivery Status</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="updateStatusForm">
+                                <div class="form-group">
+                                    <label>Order ID</label>
+                                    <input type="text" value="#ORD-2025001" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Current Status</label>
+                                    <select name="status" required>
+                                        <option value="warehouse">In Warehouse</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="packed">Packed</option>
+                                        <option value="in-transit">In Transit</option>
+                                        <option value="out-delivery">Out for Delivery</option>
+                                        <option value="delivered">Delivered</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Status Message (Optional)</label>
+                                    <textarea placeholder="Add a message for the customer..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Estimated Delivery Time</label>
+                                    <input type="datetime-local" required>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="cancel-btn">Cancel</button>
+                                    <button type="submit" class="submit-btn">Update Status</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/staff/staff-delivery.js></script>
+</body>
+
+</html>

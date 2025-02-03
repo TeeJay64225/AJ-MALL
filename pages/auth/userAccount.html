@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - AJ Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/account.css">
+</head>
+
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../../assets/images/logo.png" alt="AJ Mall Logo">
+                <h1>AJ Mall</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="../products/list.html"><i class="fas fa-store"></i> Shop</a>
+                <a href="../cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="userAccount.html" class="active"><i class="fas fa-user"></i> Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="account-container">
+        <!-- Account Sidebar -->
+        <aside class="account-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="../../assets/images/avatar-placeholder.png" alt="User Avatar" id="userAvatar">
+                    <button class="change-avatar-btn"><i class="fas fa-camera"></i></button>
+                </div>
+                <h3 id="userName">John Doe</h3>
+                <p id="userEmail">john.doe@example.com</p>
+            </div>
+            <nav class="account-nav">
+                <a href="#profile" class="active"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="#orders"><i class="fas fa-shopping-bag"></i> Orders</a>
+                <a href="#addresses"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+                <a href="#payment"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                <a href="#security"><i class="fas fa-shield-alt"></i> Security</a>
+                <a href="#notifications"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#wishlist"><i class="fas fa-heart"></i> Wishlist</a>
+            </nav>
+            <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="account-content">
+            <!-- Profile Section -->
+            <section id="profile" class="account-section active">
+                <h2>Profile Settings</h2>
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="john.doe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" value="+1 234 567 890">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="account-section">
+                <h2>My Orders</h2>
+                <div class="orders-list">
+                    <!-- Order cards will be populated dynamically -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span class="order-id">Order #12345</span>
+                            <span class="order-date">January 25, 2025</span>
+                            <span class="order-status pending">Pending</span>
+                        </div>
+                        <div class="order-items">
+                            <img src="../../assets/images/product-thumb.jpg" alt="Product">
+                            <div class="order-details">
+                                <h4>Product Name</h4>
+                                <p>Quantity: 2</p>
+                                <p>Total: $99.98</p>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="track-btn">Track Order</button>
+                            <button class="details-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Addresses Section -->
+            <section id="addresses" class="account-section">
+                <h2>My Addresses</h2>
+                <div class="addresses-list">
+                    <div class="address-card">
+                        <div class="address-type">Home</div>
+                        <h4>John Doe</h4>
+                        <p>123 Main Street</p>
+                        <p>Apartment 4B</p>
+                        <p>New York, NY 10001</p>
+                        <p>United States</p>
+                        <p>Phone: +1 234 567 890</p>
+                        <div class="address-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                    <button class="add-address-btn">
+                        <i class="fas fa-plus"></i>
+                        Add New Address
+                    </button>
+                </div>
+            </section>
+
+            <!-- Payment Methods Section -->
+            <section id="payment" class="account-section">
+                <h2>Payment Methods</h2>
+                <div class="payment-methods-list">
+                    <div class="payment-card">
+                        <div class="card-icon"><i class="fab fa-cc-visa"></i></div>
+                        <div class="card-details">
+                            <h4>Visa ending in 4242</h4>
+                            <p>Expires 12/25</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                    <button class="add-payment-btn">
+                        <i class="fas fa-plus"></i>
+                        Add New Payment Method
+                    </button>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security" class="account-section">
+                <h2>Security Settings</h2>
+                <div class="security-settings">
+                    <div class="setting-group">
+                        <h3>Change Password</h3>
+                        <form class="password-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword">
+                            </div>
+                            <button type="submit" class="save-btn">Update Password</button>
+                        </form>
+                    </div>
+                    <div class="setting-group">
+                        <h3>Two-Factor Authentication</h3>
+                        <div class="toggle-setting">
+                            <span>Enable 2FA</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="../../index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../products/list.html">
+            <i class="fas fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="../cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span class="mobile-cart-count">0</span>
+        </a>
+        <a href="account.html" class="active">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+        <a href="#" class="menu-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </a>
+    </nav>
+
+    <script src="../../js/account.js"></script>
+</body>
+
+</html>

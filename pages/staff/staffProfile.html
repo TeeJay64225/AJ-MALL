@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Profile - AJ Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/staff-delivery.css">
+    <link rel="stylesheet" href="../../css/staff-dashboard.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/inventory.css">
+    <link rel="stylesheet" href="../../css/staff-profile.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar (Same as previous) -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <img src="../assets/images/logo.png" alt="AJ Mall Logo">
+                    <h2>Staff Portal</h2>
+                </div>
+            
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <h3>Main Menu</h3>
+                        <a href="../admin/dashboard.html">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                        <a href="#" class="active">
+                            <i class="fas fa-box"></i>
+                            <span>Inventory</span>
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-truck"></i>
+                            <span>Deliveries</span>
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </div>
+            
+                    <div class="nav-section">
+                        <h3>Management</h3>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Reports</span>
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-tags"></i>
+                            <span>Categories</span>
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-percent"></i>
+                            <span>Discounts</span>
+                        </a>
+                    </div>
+            
+                    <div class="nav-section">
+                        <h3>Settings</h3>
+                        <a href="#">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="../admin/settings.html">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </nav>
+            </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>My Profile</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="profile-container">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-cover">
+                        <button class="edit-cover">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <img src="assets/images/staff-avatar.jpg" alt="John Doe">
+                            <button class="edit-avatar">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-details">
+                            <h2>John Doe</h2>
+                            <p>Senior Delivery Staff</p>
+                            <span class="badge">
+                                <i class="fas fa-star"></i> Top Performer
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="profile-content">
+                    <!-- Quick Stats -->
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <i class="fas fa-truck-fast"></i>
+                            <div class="stat-info">
+                                <h4>Deliveries</h4>
+                                <p>156 this month</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <div class="stat-info">
+                                <h4>Rating</h4>
+                                <p>4.8/5.0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <div class="stat-info">
+                                <h4>Response Time</h4>
+                                <p>15 mins avg</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Sections -->
+                    <div class="profile-grid">
+                        <!-- Personal Information -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Personal Information</h3>
+                                <button class="edit-btn">
+                                    <i class="fas fa-pencil"></i> Edit
+                                </button>
+                            </div>
+                            <div class="section-content">
+                                <div class="info-group">
+                                    <label>Full Name</label>
+                                    <p>John Michael Doe</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Email</label>
+                                    <p>john.doe@ajmall.com</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Phone</label>
+                                    <p>+1 (234) 567-8900</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Address</label>
+                                    <p>123 Staff Street, Airport Junction</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Employee ID</label>
+                                    <p>AJM-2025-001</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Metrics -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Performance Metrics</h3>
+                                <select class="period-select">
+                                    <option>This Month</option>
+                                    <option>Last Month</option>
+                                    <option>Last 3 Months</option>
+                                </select>
+                            </div>
+                            <div class="section-content">
+                                <div class="performance-metric">
+                                    <label>Delivery Success Rate</label>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 98%;">98%</div>
+                                    </div>
+                                </div>
+                                <div class="performance-metric">
+                                    <label>On-Time Delivery</label>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 95%;">95%</div>
+                                    </div>
+                                </div>
+                                <div class="performance-metric">
+                                    <label>Customer Satisfaction</label>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 92%;">92%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Settings -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Account Settings</h3>
+                            </div>
+                            <div class="section-content">
+                                <div class="settings-group">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>Two-Factor Authentication</h4>
+                                            <p>Enable extra security for your account</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>Email Notifications</h4>
+                                            <p>Receive updates about your deliveries</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <button class="change-password-btn">
+                                        <i class="fas fa-lock"></i> Change Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h3>Recent Activity</h3>
+                                <button class="view-all-btn">View All</button>
+                            </div>
+                            <div class="section-content">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon delivered">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="activity-info">
+                                            <h4>Delivery Completed</h4>
+                                            <p>Order #2025-001 delivered successfully</p>
+                                            <span class="activity-time">2 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon pickup">
+                                            <i class="fas fa-box"></i>
+                                        </div>
+                                        <div class="activity-info">
+                                            <h4>Package Picked Up</h4>
+                                            <p>Collected Order #2025-002 from warehouse</p>
+                                            <span class="activity-time">4 hours ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

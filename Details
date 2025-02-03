@@ -1,0 +1,39 @@
+aj-mall/
+├── assets/
+│   ├── images/
+│   └── icons/
+├── css/
+│   ├── style.css
+│   ├── admin.css
+│   └── responsive.css
+├── js/
+│   ├── auth/
+│   │   ├── login.js
+│   │   └── register.js
+│   ├── products/
+│   │   ├── products.js
+│   │   └── cart.js
+│   ├── admin/
+│   │   ├── dashboard.js
+│   │   └── inventory.js
+│   ├── staff/
+│   │   ├── staff.js
+│   │   └── inventory.js
+│   └── app.js
+├── pages/
+│   ├── admin/
+│   │   ├── dashboard.html
+│   │   ├── inventory.html
+│   │   └── orders.html
+│   ├── auth/
+│   │   ├── login.html
+│   │   └── register.html
+│   ├── staff/
+│   │   ├── login.html
+│   │   └── register.html
+│   ├── products/
+│   │   ├── list.html
+│   │   └── detail.html
+│   ├── cart.html
+│   └── checkout.html
+└── index.html
