@@ -160,7 +160,6 @@ function createRatingStars(rating) {
     return "★".repeat(Math.floor(rating)) + (rating % 1 ? "☆" : "");
 }
 
-// Shopping cart functionality
 const shoppingCart = {
     getCart: () => JSON.parse(localStorage.getItem("cart")) || [],
     saveCart: (cart) => localStorage.setItem("cart", JSON.stringify(cart)),
@@ -173,9 +172,11 @@ const shoppingCart = {
             cart.push({ ...product, quantity: 1 });
         }
         shoppingCart.saveCart(cart);
-        alert("Product added to cart! please check your cart");
+        alert("Product added to cart!");
+        window.location.href = "/pages/cart.html"; // Redirect to the cart page
     }
 };
+
 
 // Add event listeners to "Add to Cart" buttons
 document.addEventListener("click", (event) => {

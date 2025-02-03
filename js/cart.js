@@ -9,10 +9,17 @@ class ShoppingCart {
         this.init();
     }
 
-    // Load cart from localStorage
-    loadCartFromStorage() {
-        this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+loadCartFromStorage() {
+    try {
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        // Filter out undefined or malformed items
+        this.cart = storedCart.filter(item => item && item.id && item.name && item.price);
+    } catch (error) {
+        console.error("Error loading cart from storage:", error);
+        this.cart = [];
     }
+}
+
 
     // Initialize the cart functionalities
     init() {
